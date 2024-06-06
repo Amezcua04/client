@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import { useFetch } from "./useFetch";
+import { useEffect } from "react";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import Home from "./scenes/home/Home"
+import Navbar from "./scenes/global/Navbar";
+import Details from "./scenes/details/Details";
+
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+};
 
 function App() {
+  const { items, loading, error } = useFetch(
+    "http://localhost:1337/api/vehiculos"
+  );
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  <div className="app">
+    <BrowserRouter>
+    <ScrollToTop />
+    <Navbar />
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/vehiculos/:url" element={<Details />} />
+    </Routes>
+    </BrowserRouter>
+  </div>
   );
 }
 
