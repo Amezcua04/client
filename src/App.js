@@ -17,7 +17,7 @@ const ScrollToTop = () => {
 
 function App() {
   const { items, loading, error } = useFetch(
-    "http://localhost:1337/api/vehiculos"
+    "https://popular-nurture-36b9643220.strapiapp.com/api/vehiculos"
   );
 
   return (

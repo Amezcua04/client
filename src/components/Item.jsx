@@ -26,7 +26,7 @@ const Item = ({ item, width }) => {
                     alt={item.nombre}
                     width="250px"
                     height="141.5px"
-                    src={`http://localhost:1337${url}`}
+                    src={`https://popular-nurture-36b9643220.media.strapiapp.com/${url}`}
                     onClick={() => navigate(`/vehiculos/${item.attributes.url}`)}
                     style={{ cursor: 'pointer' }}
                 />

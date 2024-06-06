@@ -14,21 +14,21 @@ const VehiclesList = () => {
   };
 
   const { items, loading, error } = useFetch(
-    "http://localhost:1337/api/vehiculos?populate=*"
+    "https://popular-nurture-36b9643220.strapiapp.com/api/vehiculos?populate=*"
   );
 
   const filteredItems = (category) => {
     switch (category) {
       case "Electrics":
-        return items?.data.filter(
+        return items?.data?.filter(
           (item) => item.attributes.categoria === "Electricos"
         );
       case "SUVs":
-        return items?.data.filter(
+        return items?.data?.filter(
           (item) => item.attributes.categoria === "SUVs"
         );
       case "Autos":
-        return items?.data.filter(
+        return items?.data?.filter(
           (item) => item.attributes.categoria === "Autos"
         );
       default:

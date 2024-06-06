@@ -30,7 +30,7 @@ const Details = () => {
   const isMobile = useMediaQuery("(max-width:600px)");
 
   const { items, loading, error } = useFetch(
-    `http://localhost:1337/api/vehiculos/${url}`
+    `https://popular-nurture-36b9643220.strapiapp.com/api/vehiculos/${url}`
   );
 
   const handleClickOpen = (index) => {
@@ -85,12 +85,14 @@ const Details = () => {
                 onClick={() => handleClickOpen(index)}
               >
                 <img
-                  srcSet={`http://localhost:1337${image?.attributes?.formats?.small?.url}?w=161&fit=crop&auto=format&dpr=2 2x`}
-                  src={`http://localhost:1337${image?.attributes?.formats?.small?.url}?w=161&fit=crop&auto=format`}
+                  srcSet={`https://popular-nurture-36b9643220.media.strapiapp.com/${image?.attributes?.formats?.small?.url}?w=161&fit=crop&auto=format&dpr=2 2x`}
+                  src={`https://popular-nurture-36b9643220.media.strapiapp.com/${image?.attributes?.formats?.small?.url}?w=161&fit=crop&auto=format`}
                   alt={image?.attributes?.name}
                   loading="lazy"
                   style={{ cursor: "pointer" }}
                 />
+                {console.log(image?.data?.attributes?.formats?.small?.url)}
+                
               </ImageListItem>
             ))}
           </ImageList>
@@ -124,7 +126,7 @@ const Details = () => {
             {...swipeHandlers}
           >
             <img
-              src={`http://localhost:1337${images[currentImage]?.attributes?.formats?.small?.url}?w=161&fit=crop&auto=format`}
+              src={`https://popular-nurture-36b9643220.media.strapiapp.com/${images[currentImage]?.attributes?.formats?.small?.url}?w=161&fit=crop&auto=format`}
               alt={images[currentImage]?.attributes?.name}
               style={{ maxWidth: "100%", maxHeight: "80vh" }}
             />
