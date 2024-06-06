@@ -1,4 +1,4 @@
-import { Box, useMediaQuery } from "@mui/material";
+import { Box } from "@mui/material";
 import VehiclesList from "./VehiclesList";
 import Background from "./Background";
 import videoUrl from "../../assets/exlm-01-stage-hd.mp4";
