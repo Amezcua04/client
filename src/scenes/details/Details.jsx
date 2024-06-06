@@ -1,4 +1,6 @@
 import {
+  Alert,
+  AlertTitle,
   Box,
   Button,
   Dialog,
@@ -22,6 +24,7 @@ import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { useSwipeable } from "react-swipeable";
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
+import Loading from "../global/Loading";
 
 const Details = () => {
   const { url } = useParams();
@@ -69,6 +72,13 @@ const Details = () => {
         justifyContent="center"
         flexWrap="wrap"
       >
+        {error && (
+        <Alert severity="error">
+          <AlertTitle>{error}</AlertTitle>
+          Ha ocurrido un error al obtener los vehiculos.
+        </Alert>
+      )}
+      {loading && <Loading />}
         {images.length > 0 ? (
           <ImageList
             sx={{
